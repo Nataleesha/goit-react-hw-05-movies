@@ -3,6 +3,7 @@ import Home from "pages/Home.jsx";
 import Layout from "./Layout";
 import MovieDetails from "pages/MovieDetails";
 import Cast from "./Cast";
+import Reviews from "./Reviews";
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
           <Route path="movies" element={<div>Search Movies By Name</div>} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<div>Reviews</div>} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
       </Routes>

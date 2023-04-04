@@ -1,0 +1,14 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+.item img {
+  border-radius: 6px;
+}

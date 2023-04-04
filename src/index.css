@@ -1,9 +1,11 @@
 @import-normalize;
 
 body {
-  padding: 20px 50px;
   margin: 0;
+  background-color: #000;
+  color: #FFF;
   line-height: 1.5;
+  font-size: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -37,11 +39,21 @@ ol {
 }
 
 img {
-  display: inline-block;
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
 button {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+a:hover,
+a:active {
+  color: #77DD66;
 }

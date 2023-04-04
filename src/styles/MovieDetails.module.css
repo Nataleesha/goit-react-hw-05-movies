@@ -1,0 +1,61 @@
+.container {
+  padding: 10px 40px;
+}
+
+.back {
+  padding: 0 20px 0 10px;
+  display: inline-flex;
+  color: #000;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.svg {
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.back:hover,
+.back:active {
+  color: #000;
+  background-color: #8fe381;
+}
+
+.info {
+  margin-top: 3px;
+}
+
+.descr {
+  display: flex;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+  margin-right: 25px;
+  border-radius: 6px;
+}
+
+.name {
+  color: #8fe381;
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+.add {
+  margin-top: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.adds {
+  display: flex;
+  justify-content: center;
+}
+
+.adds li:first-child {
+  margin-right: 30px;
+}
