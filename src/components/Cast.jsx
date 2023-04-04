@@ -30,7 +30,7 @@ const Cast = () => {
           return (
             <li key={actor.id} className={css.item}>
               <img src={actor.profile_path ? `${IMG_URL}${actor.profile_path}` : imagePlug} alt={actor.name}></img>
-              <div>
+              <div className={css.actor}>
                 <h3>{actor.name}</h3>
                 <p>Role: {actor.character}</p>
               </div>
