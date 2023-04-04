@@ -1,6 +1,7 @@
 @import-normalize;
 
 body {
+  padding: 20px 50px;
   margin: 0;
   line-height: 1.5;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -36,7 +37,7 @@ ol {
 }
 
 img {
-  display: block;
+  display: inline-block;
   max-width: 100%;
   height: auto;
 }
