@@ -1,3 +1,11 @@
 .trends {
   margin: 0 auto;
 }
+
+.movie {
+  display: block;
+}
+
+.movie:hover {
+  font-weight: 900;
+}

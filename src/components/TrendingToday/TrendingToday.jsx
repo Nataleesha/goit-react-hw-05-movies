@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import css from 'components/TrendingToday/TrendingToday.module.css';
+import css from "components/TrendingToday/TrendingToday.module.css";
 
 const TrendingToday = ({ movies }) => {
   return (
@@ -7,7 +7,9 @@ const TrendingToday = ({ movies }) => {
       {movies.map((movie) => {
         return (
           <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`} className={css.movie}>
+              {movie.title}
+            </Link>
           </li>
         );
       })}
