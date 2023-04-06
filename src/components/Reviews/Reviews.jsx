@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import css from 'styles/Reviews.module.css';
+import css from "components/Reviews/Reviews.module.css";
 
 const API_KEY = "7962a1912dc39a09e22d58ae0351b8bc";
 const URL = "https://api.themoviedb.org/3/movie/";
@@ -20,7 +20,7 @@ const Reviews = () => {
     gerReviews();
   }, [movieId]);
 
-  return reviews ? (
+  return reviews && reviews.length > 0 ? (
     <ul>
       {reviews.map((review) => {
         return (
@@ -32,7 +32,7 @@ const Reviews = () => {
       })}
     </ul>
   ) : (
-    <p>No Reviews</p>
+    <p>No Reviews.</p>
   );
 };
 

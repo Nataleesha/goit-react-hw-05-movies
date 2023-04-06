@@ -1,8 +1,8 @@
 import { useParams, Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Loader } from "components/Loader";
-import svg from 'img/arrow.svg';
-import css from "styles/MovieDetails.module.css";
+import { Loader } from "components/Loader/Loader";
+import svg from "img/arrow.svg";
+import css from "pages/MovieDetails/MovieDetails.module.css";
 
 const API_KEY = "7962a1912dc39a09e22d58ae0351b8bc";
 const URL = "https://api.themoviedb.org/3/movie";
@@ -40,19 +40,24 @@ const MovieDetails = () => {
   return (
     <div className={css.container}>
       <Link to="/" className={css.back}>
-        <img src={svg} alt="arrow-left" className={css.svg}/>
+        <img src={svg} alt="arrow-left" className={css.svg} />
         Go back
       </Link>
       {movie ? (
         <div className={css.info}>
           <div className={css.descr}>
-            <img src={`${IMG_URL}${movie.poster_path}`} alt={movie.title} 
-            className={css.img}></img>
+            <img
+              className={css.poster}
+              src={`${IMG_URL}${movie.poster_path}`}
+              alt={movie.title}
+            ></img>
             <div>
               <h2 className={css.name}>
                 {movie.title} ({getReleaseYear(movie.release_date)})
               </h2>
-              <p className={css.text}>User Score: {(movie.vote_average * 10).toFixed(0)}%</p>
+              <p className={css.text}>
+                User Score: {(movie.vote_average * 10).toFixed(0)}%
+              </p>
               <h3>Overview</h3>
               <p className={css.text}>{movie.overview}</p>
               <h3>Genres</h3>

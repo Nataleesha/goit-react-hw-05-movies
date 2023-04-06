@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import css from 'styles/TrendingToday.module.css';
+import css from 'components/TrendingToday/TrendingToday.module.css';
 
 const TrendingToday = ({ movies }) => {
   return (

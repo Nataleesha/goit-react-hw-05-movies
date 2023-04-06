@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "pages/Home.jsx";
-import Layout from "./Layout";
-import MovieDetails from "pages/MovieDetails";
-import Cast from "./Cast";
-import Reviews from "./Reviews";
+import Home from "pages/Home/Home.jsx";
+import Layout from "./Layout/Layout";
+import MovieDetails from "pages/MovieDetails/MovieDetails";
+import Cast from "./Cast/Cast";
+import Reviews from "./Reviews/Reviews";
 
 export default function App() {
   return (
@@ -16,6 +16,7 @@ export default function App() {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     </div>

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Loader } from "./Loader";
-import css from 'styles/Cast.module.css';
+import { Loader } from "../Loader/Loader";
+import css from 'components/Cast/Cast.module.css';
 import imagePlug from 'img/blank.png';
 
 const API_KEY = "7962a1912dc39a09e22d58ae0351b8bc";

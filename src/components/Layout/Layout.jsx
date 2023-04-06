@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import css from 'styles/Layout.module.css';
+import css from 'components/Layout/Layout.module.css';
 
 const Layout = () => {
   return (
@@ -14,7 +14,7 @@ const Layout = () => {
           </li>
         </ul>
       </header>
-      <main>
+      <main className={css.container}>
         <Outlet />
       </main>
     </>

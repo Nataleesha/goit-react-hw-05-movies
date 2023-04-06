@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import TrendingToday from "components/TrendingToday";
-import css from 'styles/Home.module.css';
+import TrendingToday from "components/TrendingToday/TrendingToday";
+import css from 'pages/Home/Home.module.css';
 
 const API_KEY = "7962a1912dc39a09e22d58ae0351b8bc";
 const URL = "https://api.themoviedb.org/3/trending/movie/day";
