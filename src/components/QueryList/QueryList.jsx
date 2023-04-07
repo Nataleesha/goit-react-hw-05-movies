@@ -1,22 +1,29 @@
-import { Link } from "react-router-dom";
-import css from "components/TrendingToday/TrendingToday.module.css";
+import { useEffect, useMemo } from "react";
+import { Link, useLocation } from "react-router-dom";
+import css from "components/QueryList/QueryList.module.css";
 import noImage from "img/noimage.jpeg";
 
 const IMG_URL = "https://image.tmdb.org/t/p/w300/";
 
-const TrendingToday = ({ movies }) => {
+const QueryList = ({ movies }) => {
+  const location = useLocation();
+
   return (
-    <ul className={css.trends}>
+    <ul className={css.list}>
       {movies.map((movie) => {
         return (
           <li key={movie.id} className={css.movie}>
-            <Link to={`/movies/${movie.id}`} className={css.link}>
+            <Link
+              to={`/movies/${movie.id}`}
+              state={{ from: location }}
+              className={css.link}
+            >
               <img
                 src={
                   movie.poster_path ? `${IMG_URL}${movie.poster_path}` : noImage
                 }
                 alt={movie.title}
-                width="150px"
+                width="100px"
                 height="100%"
               ></img>
               {movie.title}
@@ -28,4 +35,4 @@ const TrendingToday = ({ movies }) => {
   );
 };
 
-export default TrendingToday;
+export default QueryList;

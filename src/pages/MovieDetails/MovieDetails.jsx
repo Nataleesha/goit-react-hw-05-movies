@@ -1,8 +1,9 @@
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Loader } from "components/Loader/Loader";
 import svg from "img/arrow.svg";
 import css from "pages/MovieDetails/MovieDetails.module.css";
+import noImage from "img/noimage.jpeg";
 
 const API_KEY = "7962a1912dc39a09e22d58ae0351b8bc";
 const URL = "https://api.themoviedb.org/3/movie";
@@ -11,6 +12,7 @@ const IMG_URL = "https://image.tmdb.org/t/p/w300/";
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     const getMovieDetails = async () => {
@@ -25,6 +27,9 @@ const MovieDetails = () => {
   }, [movieId]);
 
   const getReleaseYear = (releaseDate) => {
+    if (!releaseDate) {
+      return "????";
+    }
     let releaseYear = new Date(releaseDate);
     return releaseYear.getFullYear();
   };
@@ -39,7 +44,7 @@ const MovieDetails = () => {
 
   return (
     <div className={css.container}>
-      <Link to="/" className={css.back}>
+      <Link to={location.state?.from ?? "/"} className={css.back}>
         <img src={svg} alt="arrow-left" className={css.svg} />
         Go back
       </Link>
@@ -48,7 +53,9 @@ const MovieDetails = () => {
           <div className={css.descr}>
             <img
               className={css.poster}
-              src={`${IMG_URL}${movie.poster_path}`}
+              src={
+                movie.poster_path ? `${IMG_URL}${movie.poster_path}` : noImage
+              }
               alt={movie.title}
             ></img>
             <div>
