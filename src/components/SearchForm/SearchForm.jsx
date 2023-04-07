@@ -17,13 +17,6 @@ const SearchForm = () => {
       : setSearchParams({ q: evt.target.value });
   };
 
-  useEffect(() => {
-    if (queryValue === "") {
-      return;
-    }
-    getQueryResults().catch(console.error);
-  }, []);
-
   const getQueryResults = async () => {
     let response = await fetch(
       `${URL}?api_key=${API_KEY}&language=en-US&query=${queryValue}&page=1&include_adult=false`
