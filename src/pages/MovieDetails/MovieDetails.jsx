@@ -1,5 +1,5 @@
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense, useRef } from "react";
 import Loader from "components/Loader/Loader";
 import svg from "img/arrow.svg";
 import css from "pages/MovieDetails/MovieDetails.module.css";
@@ -13,6 +13,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? "/");
 
   useEffect(() => {
     const getMovieDetails = async () => {
@@ -44,7 +45,7 @@ const MovieDetails = () => {
 
   return (
     <div className={css.container}>
-      <Link to={location.state?.from ?? "/"} className={css.back}>
+      <Link to={backLinkLocationRef.current} className={css.back}>
         <img src={svg} alt="arrow-left" className={css.svg} />
         Go back
       </Link>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import css from "components/SearchForm/SearchForm.module.css";
 import QueryList from "components/QueryList/QueryList";
@@ -17,15 +17,23 @@ const SearchForm = () => {
       : setSearchParams({ q: evt.target.value });
   };
 
+  useEffect(() => {
+    if (queryValue === "") {
+      return;
+    }
+    getQueryResults().catch(console.error);
+  }, []);
+
+  const getQueryResults = async () => {
+    let response = await fetch(
+      `${URL}?api_key=${API_KEY}&language=en-US&query=${queryValue}&page=1&include_adult=false`
+    );
+    response = await response.json();
+    setSearchResult(response.results);
+  };
+
   const submitHandle = (e) => {
     e.preventDefault();
-    const getQueryResults = async () => {
-      let response = await fetch(
-        `${URL}?api_key=${API_KEY}&language=en-US&query=${queryValue}&page=1&include_adult=false`
-      );
-      response = await response.json();
-      setSearchResult(response.results);
-    };
     getQueryResults().catch(console.error);
   };
 
