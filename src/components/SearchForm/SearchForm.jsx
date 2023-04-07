@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import css from "components/SearchForm/SearchForm.module.css";
 import QueryList from "components/QueryList/QueryList";
