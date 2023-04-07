@@ -1,6 +1,6 @@
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState, Suspense } from "react";
-import { Loader } from "components/Loader/Loader";
+import Loader from "components/Loader/Loader";
 import svg from "img/arrow.svg";
 import css from "pages/MovieDetails/MovieDetails.module.css";
 import noImage from "img/noimage.jpeg";
