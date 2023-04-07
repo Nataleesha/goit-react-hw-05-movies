@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+
 import { Link, useLocation } from "react-router-dom";
 import css from "components/QueryList/QueryList.module.css";
 import noImage from "img/noimage.jpeg";

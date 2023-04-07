@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Loader } from "../Loader/Loader";
 import css from 'components/Cast/Cast.module.css';
 import imagePlug from 'img/blank.png';
 
@@ -25,7 +24,7 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    cast ? (<ul className={css.list}>
+    cast && cast.length > 0 ? (<ul className={css.list}>
         {cast.map((actor) => {
           return (
             <li key={actor.id} className={css.item}>
@@ -37,7 +36,7 @@ const Cast = () => {
             </li>
           );
         })}
-      </ul>) : <Loader />
+      </ul>) : <p>No Information.</p>
   );
 };
 

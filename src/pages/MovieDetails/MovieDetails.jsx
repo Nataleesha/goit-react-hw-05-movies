@@ -1,5 +1,5 @@
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Loader } from "components/Loader/Loader";
 import svg from "img/arrow.svg";
 import css from "pages/MovieDetails/MovieDetails.module.css";
@@ -82,7 +82,9 @@ const MovieDetails = () => {
               </li>
             </ul>
           </div>
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </div>
       ) : (
         <Loader />

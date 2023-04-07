@@ -1,25 +1,30 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "pages/Home/Home.jsx";
+import { lazy, Suspense } from "react";
 import SharedLayout from "./SharedLayout/SharedLayout";
-import MovieDetails from "pages/MovieDetails/MovieDetails";
-import SearchForm from "./SearchForm/SearchForm";
-import Cast from "./Cast/Cast";
-import Reviews from "./Reviews/Reviews";
+import Loader from "components/Loader/Loader.jsx";
+
+const Home = lazy(() => import("pages/Home/Home.jsx"));
+const MovieDetails = lazy(() => import("pages/MovieDetails/MovieDetails"));
+const SearchForm = lazy(() => import("./SearchForm/SearchForm"));
+const Cast = lazy(() => import("./Cast/Cast"));
+const Reviews = lazy(() => import("./Reviews/Reviews"));
 
 export default function App() {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Home />} />
-          <Route path="movies" element={<SearchForm />} />
-          <Route path="movies/:movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path="movies" element={<SearchForm />} />
+            <Route path="movies/:movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+            <Route path="*" element={<Home />} />
           </Route>
-          <Route path="*" element={<Home />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </Suspense>
     </div>
   );
 }
